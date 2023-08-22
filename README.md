@@ -1,13 +1,9 @@
 # NSF Food program
 
-To transpile, run
+This API serves an Htmx front end application
 
-    dotnet fable
+To run
+     dotnet run --project src/api
 
-
-Scripts:
-
-    "start": "dotnet tool restore && dotnet fable watch src --runFast vite",
-    "build": "dotnet tool restore && dotnet fable src --run vite build",
-    "clean": "dotnet fable clean src --yes"
+[Html2Feliz](https://thisfunctionaltom.github.io/Html2Feliz/)
 
