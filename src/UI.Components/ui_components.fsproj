@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="HTMX.fs" />
+    <Compile Include="IndexPage.fs" />
     <Compile Include="UIComponents.fs" />
   </ItemGroup>
 

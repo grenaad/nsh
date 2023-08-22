@@ -1,4 +1,4 @@
-﻿open UIComponents
+﻿open IndexPage
 
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Http
