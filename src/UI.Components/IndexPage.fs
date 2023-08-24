@@ -20,7 +20,7 @@ let mainPage =
             Html.script[ prop.src "https://unpkg.com/htmx.org@1.9.4" ]
 // <script src="https://unpkg.com/htmx.org@1.9.4"></script>
             Html.header [ prop.text "Feliz" ]
-            Html.button [prop.text " some button"; Htmx.post "/clicked"; Htmx.swap.afterbegin]
+            Html.button [prop.text " some button"; hx.post "/clicked"; hx.swap.afterbeginm(hx.swap.ScrollBottom, hx.swap.FocusScroll true)]
         ]
     ]
 
