@@ -1,13 +1,13 @@
 module IndexPage
 
+open LoginPage
 open Feliz.ViewEngine
 open Htmx
 
-
-let mainPage =
+let indexPage: string =
     Html.html [
         Html.head [
-            Html.title "Feliz App"
+            Html.title "NSH"
             Html.meta [ prop.name "Content-Type"; prop.content "text/html; charset=utf-8" ]
             Html.meta [ prop.name "viewport"; prop.content "width=device-width, initial-scale=1" ]
             Html.link [ prop.rel "shortcut icon"; prop.type'.image; prop.href "./img/favicon-32x32.png"; prop.sizes "32x32" ]
@@ -20,18 +20,9 @@ let mainPage =
             Html.script[ prop.src "https://unpkg.com/htmx.org@1.9.4" ]
 // <script src="https://unpkg.com/htmx.org@1.9.4"></script>
             Html.header [ prop.text "Feliz" ]
-            Html.button [prop.text " some button"; hx.post "/clicked"; hx.swap.afterbeginm(hx.swap.ScrollBottom, hx.swap.FocusScroll true)]
+            Html.button [prop.text " some button"; hx.post "/clicked"; hx.swap.afterbegin'(hx.swap.ScrollBottom, hx.swap.FocusScroll true)]
+            loginPage
         ]
     ]
-
-
-// let view = 
-//     Html.html [
-//         Html.head [ Html.title "Feliz" ]
-//         Html.body [
-//             Html.header [ prop.text "Feliz" ]
-//         ]
-//     ]
-
-let indexPage :string = Render.htmlDocument mainPage
+    |> Render.htmlDocument
 

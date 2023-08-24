@@ -4,11 +4,15 @@ open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Http
 open System
 open System.Net.Mime
+open Feliz.ViewEngine
 
 let builder = WebApplication.CreateBuilder()
 let app = builder.Build()
 
+let reactElementTostr (s: ReactElement): string = Render.htmlDocument s
+// Render.htmlview
 let strToHtml s = Func<IResult>(fun () -> Results.Content(s, MediaTypeNames.Text.Html))
+let reactElementToHtml s = s |> reactElementTostr |> strToHtml
 
 let str s = Func<string>(fun () -> s)
 

@@ -376,34 +376,35 @@ module hx =
         let value: string = Array.fold f "" args
         prop.custom("hx-swap", value)
 
-      static member private modifiers (name: string, [<ParamArray>] args: swap[])= swap.swapAttribute (Array.append [|swap.AttributeName name|] args)
+      static member private modifiers (name: string, [<ParamArray>] args: swap[]) = 
+        swap.swapAttribute (Array.append [|swap.AttributeName name|] args)
 
       /// <summary>The default, replace the inner html of the target element</summary>
       static member innerHTML = prop.custom("hx-swap","innerHTML")
-      static member innerHTMLm ([<ParamArray>] args: swap[])= swap.modifiers("innerHTML", args)
+      static member innerHTML' ([<ParamArray>] args: swap[])= swap.modifiers("innerHTML", args)
 
       /// <summary>Replace the entire target element with the response</summary>
       static member outerHTML = prop.custom("hx-swap","outerHTML")
-      static member outerHTMLm ([<ParamArray>] args: swap[]) = swap.modifiers("outerHTML",  args)
+      static member outerHTML' ([<ParamArray>] args: swap[]) = swap.modifiers("outerHTML",  args)
 
       /// <summary>Insert the response before the target element</summary>
       static member beforebegin = prop.custom("hx-swap","beforebegin")
-      static member beforebeginm ([<ParamArray>] args: swap[])= swap.modifiers("beforebegin", args)
+      static member beforebegin' ([<ParamArray>] args: swap[])= swap.modifiers("beforebegin", args)
      
       /// <summary>Insert the response before the first child of the target element</summary>
       static member afterbegin = prop.custom("hx-swap","afterbegin")
-      static member afterbeginm ([<ParamArray>] args: swap[])= swap.modifiers("afterbegin", args)
+      static member afterbegin' ([<ParamArray>] args: swap[])= swap.modifiers("afterbegin", args)
 
       /// <summary>Insert the response after the last child of the target element</summary>
       static member beforeend = prop.custom("hx-swap","beforeend")
-      static member beforeendm ([<ParamArray>] args: swap[])= swap.modifiers("beforeend", args)
+      static member beforeend' ([<ParamArray>] args: swap[])= swap.modifiers("beforeend", args)
 
       static member delete = prop.custom("hx-swap","delete")
-      static member deletem ([<ParamArray>] args: swap[])= swap.modifiers("delete", args)
+      static member delete' ([<ParamArray>] args: swap[])= swap.modifiers("delete", args)
 
       /// <summary>Insert the response after the target element</summary>
       static member afterend = prop.custom("hx-swap", "afterend")
-      static member afterendm ([<ParamArray>] args: swap[])= swap.modifiers("afterend", args)
+      static member afterend' ([<ParamArray>] args: swap[])= swap.modifiers("afterend", args)
 
       /// <summary>Does not append content from response (out of band items will still be processed)</summary>
       static member none = prop.custom("hx-swap", "none")
