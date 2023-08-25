@@ -341,7 +341,7 @@ module hx =
     /// Allows you to specify how the response will be swapped in relative to the target of an AJAX request.
     /// </summary>
   type swap =
-      | AttributeName of string
+      | Type of string
       | Transition
       | Swap of int
       | Settle of int
@@ -357,8 +357,8 @@ module hx =
 
       member private this.str: string =
         match this with
-        | AttributeName s -> s
-        | Transition -> "transition"
+        | Type s -> s
+        | Transition -> "transition:true" // TODO: need to move to styling
         | Swap seconds -> "swap:" + string seconds + "s"
         | Settle seconds -> "swap:" + string seconds + "s"
         | ScrollTop -> "scroll:top"
@@ -371,13 +371,13 @@ module hx =
         | ShowWindowBottom -> "show:window:bottom"
         | FocusScroll b -> "focus-scroll:" + if b then "true" else "false"
 
-      static member private swapAttribute ([<ParamArray>] args: swap[]) =
+      static member private swapType ([<ParamArray>] args: swap[]) =
         let f = fun (str:string) (arg: swap) -> if str = "" then arg.str else str + " " + arg.str
         let value: string = Array.fold f "" args
         prop.custom("hx-swap", value)
 
-      static member private modifiers (name: string, [<ParamArray>] args: swap[]) = 
-        swap.swapAttribute (Array.append [|swap.AttributeName name|] args)
+      static member private modifiers (swapType: string, [<ParamArray>] args: swap[]) = 
+        swap.swapType (Array.append [|swap.Type swapType|] args)
 
       /// <summary>The default, replace the inner html of the target element</summary>
       static member innerHTML = prop.custom("hx-swap","innerHTML")
