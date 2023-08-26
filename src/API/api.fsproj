@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UI.Components\ui_components.fsproj" />
+    <ProjectReference Include="..\Views\views.fsproj" />
   </ItemGroup>
 
 </Project>
