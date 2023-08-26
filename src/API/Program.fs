@@ -32,3 +32,4 @@ get "/login" (reactElementToHtml loginPage)
 // app.MapGet("/index2.html", str document) |> ignore
 // app.MapGet("/index.html", strToHtml document2) |> ignore
 app.Run()
+
