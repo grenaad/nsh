@@ -4,6 +4,7 @@ open Feliz
 open Feliz.ViewEngine
 open Htmx
 
+
 let loginPage =
   Html.div
     [ Html.link [ prop.rel "stylesheet"; prop.href "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" ]
@@ -32,7 +33,7 @@ let loginPage =
                               prop.required true ]
                           Html.i [ prop.className "bx bx-lock-alt" ] ]
                       Html.button [ prop.type' "submit"; prop.text "Submit" ]
-
                       ] ] ] ]
       // |> Render.htmlView
       ]
+

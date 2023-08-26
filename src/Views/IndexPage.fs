@@ -24,3 +24,4 @@ let indexPage: string =
           Html.div [ hx.swap.innerHTML; hx.get "/login" ]
           loginPage ] ]
   |> Render.htmlDocument
+
