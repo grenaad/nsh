@@ -1,5 +1,5 @@
 ﻿open IndexPage
-open LoginPage
+open Components
 
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Http
@@ -25,7 +25,7 @@ let post (path: string) (response: Func<_>) = app.MapPost(path, response) |> ign
 
 get "/index.html" (strToHtml indexPage)
 
-get "/login" (reactElementToHtml loginPage)
+get "/login" (reactElementToHtml loginComponent)
 
 // post "/post" (strToHtml indexPage)
 
