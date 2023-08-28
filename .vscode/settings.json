@@ -1,0 +1,14 @@
+{
+  "tailwindCSS.experimental.classRegex": [
+    "\\.classes\\s+\"([^\"]*)\"",
+    ["\\.classes\\s+\\[([^\\]]*)\\]", "\"([^\"]*)\""],
+    "\\.className\\s+\"([^\"]*)\""
+  ],
+  "tailwindCSS.includeLanguages": {
+    "fsharp": "html"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.inlineSuggest.enabled": true
+}

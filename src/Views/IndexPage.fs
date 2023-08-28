@@ -47,3 +47,4 @@ let indexPage: string =
               prop.classes [ "h-screen"; "flex" ;"items-center" ;"justify-center";  ] ] ] ]
 
   |> Render.htmlDocument
+

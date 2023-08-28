@@ -1,5 +1,5 @@
 ﻿open IndexPage
-open Components
+open LoginComponent
 
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Http
