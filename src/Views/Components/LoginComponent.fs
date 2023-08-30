@@ -7,7 +7,7 @@ let loginComponent =
     [ prop.classes [ "hero"; "min-h-screen"; "bg-base-200" ]
       prop.children
         [ Html.div
-            [ prop.classes [ "hero-content"; "flex-col"; "lg:flex-row-reverse" ]
+            [ prop.classes ["hero-content"; "flex-col"; "lg:flex-row-reverse" ]
               prop.children
                 [ Html.div
                     [ prop.classes [ "text-center"; "lg:text-left" ]
