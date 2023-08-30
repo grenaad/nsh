@@ -1,55 +1,60 @@
 module LoginComponent
 
 open Feliz.ViewEngine
+open type Html
+open type prop
 
 let loginComponent =
-  Html.div
-    [ prop.classes [ "hero"; "min-h-screen"; "bg-base-200" ]
-      prop.children
-        [ Html.div
-            [ prop.classes ["hero-content"; "flex-col"; "lg:flex-row-reverse" ]
-              prop.children
-                [ Html.div
-                    [ prop.classes [ "text-center"; "lg:text-left" ]
-                      prop.children
-                        [ Html.h1 [ prop.classes [ "text-5xl"; "font-bold" ]; prop.text "Login" ]
-                          Html.p [ prop.className [ "w-max"; "py-6" ]; prop.text "NSH food parcels login page" ] ] ]
-                  Html.div
-                    [ prop.classes [ "card"; "flex-shrink-0"; "w-full"; "max-w-sm"; "shadow-2xl"; "bg-base-100" ]
-                      prop.children
-                        [ Html.div
-                            [ prop.className "card-body"
-                              prop.children
-                                [ Html.div
-                                    [ prop.className "form-control"
-                                      prop.children
-                                        [ Html.label
-                                            [ prop.className "label"
-                                              prop.children
-                                                [ Html.span [ prop.className "label-text"; prop.text "Email" ] ] ]
-                                          Html.input
-                                            [ prop.type' "text"
-                                              prop.placeholder "email"
-                                              prop.classes [ "input"; "input-bordered" ] ] ] ]
-                                  Html.div
-                                    [ prop.className "form-control"
-                                      prop.children
-                                        [ Html.label
-                                            [ prop.className "label"
-                                              prop.children
-                                                [ Html.span [ prop.className "label-text"; prop.text "Password" ] ] ]
-                                          Html.input
-                                            [ prop.type' "text"
-                                              prop.placeholder "password"
-                                              prop.classes [ "input"; "input-bordered" ] ]
-                                          Html.label
-                                            [ prop.className "label"
-                                              prop.children
-                                                [ Html.a
-                                                    [ prop.classes [ "label-text-alt"; "link"; "link-hover" ]
-                                                      prop.href "#"
-                                                      prop.text "Forgot password?" ] ] ] ] ]
-                                  Html.div
-                                    [ prop.classes [ "form-control"; "mt-6" ]
-                                      prop.children
-                                        [ Html.button [ prop.classes [ "btn"; "btn-primary" ]; prop.text "Login" ] ] ] ] ] ] ] ] ] ] ]
+  Html.div [
+      prop.classes [ "flex"; "h-screen"; "justify-center"; "items-center" ]
+      prop.children [
+          Html.div [
+              prop.classes [ "bg-white"; "rounded-lg"; "p-8"; "shadow-md"; "w-96" ]
+              prop.children [
+                  Html.h2 [
+                      prop.classes [ "text-2xl"; "font-semibold"; "mb-4" ]
+                      prop.text "Login"
+                  ]
+                  Html.form [
+                      Html.div [
+                          prop.className "mb-4"
+                          prop.children [
+                              Html.label [
+                                  prop.classes [ "block"; "font-medium"; "mb-1"; "text-black" ]
+                                  prop.for' "username"
+                                  prop.text "Username"
+                              ]
+                              Html.input [
+                                  prop.type' "text"
+                                  prop.id "username"
+                                  prop.classes [ "w-full"; "p-2"; "rounded"; "border"; "bg-gray-100" ; "text-black"  ]
+                                  prop.required true
+                              ]
+                          ]
+                      ]
+                      Html.div [
+                          prop.className "mb-4"
+                          prop.children [
+                              Html.label [
+                                  prop.classes [ "block"; "font-medium"; "mb-1" ; "text-black"]
+                                  prop.for' "password"
+                                  prop.text "Password"
+                              ]
+                              Html.input [
+                                  prop.type' "password"
+                                  prop.id "password"
+                                  prop.classes [ "w-full"; "p-2"; "rounded"; "border"; "bg-gray-100" ; "text-black"]
+                                  prop.required true
+                              ]
+                          ]
+                      ]
+                      Html.button [
+                          prop.classes [ "w-full"; "btn"; "btn-primary"; "text-black" ]
+                          prop.type' "submit"
+                          prop.text "Login"
+                      ]
+                  ]
+              ]
+          ]
+      ]
+  ]

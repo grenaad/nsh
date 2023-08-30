@@ -36,7 +36,7 @@ let indexPage: string =
               prop.sizes "16x16" ] ]
 
       Html.body
-        [ 
+        [
           // Html.div [ prop.id "main-app" ]
           // Html.script[ prop.type' "module"; prop.src "./Main.fs.js" ]
           Html.div
@@ -44,7 +44,6 @@ let indexPage: string =
               hx.swap.outerHTML
               hx.trigger "mouseenter"
               hx.get "/login"
-              prop.classes [ "h-screen"; "flex" ;"items-center" ;"justify-center";  ] ] ] ]
+              prop.classes [ "h-screen"; "flex"; "items-center"; "justify-center" ] ] ] ]
 
   |> Render.htmlDocument
-
