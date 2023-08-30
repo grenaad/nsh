@@ -1,8 +1,8 @@
 module LoginComponent
 
 open Feliz.ViewEngine
-open type Html
-open type prop
+// open type Html
+// open type prop
 
 let loginComponent =
   Html.div [

@@ -43,7 +43,7 @@ let indexPage: string =
             [ prop.text "Hover here to Login"
               hx.swap.outerHTML
               hx.trigger "mouseenter"
-              hx.get "/login"
+              hx.get "/main"
               prop.classes [ "h-screen"; "flex"; "items-center"; "justify-center" ] ] ] ]
 
   |> Render.htmlDocument
