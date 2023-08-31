@@ -25,6 +25,7 @@ let configureServices (services: IServiceCollection) =
     .AddCookie(fun options ->
       options.ExpireTimeSpan <- TimeSpan.FromMinutes 20
       options.SlidingExpiration <- true
+      options.LoginPath <- "/index.html"
       options.AccessDeniedPath <- accessDeniedPath)
   |> ignore
   services.AddAuthorization(fun config ->
@@ -95,9 +96,9 @@ let requireAdminPolicy : HttpHandler =
     authorizeByPolicyName "AdminPolicy" (RequestErrors.FORBIDDEN  "Permission denied. Failed Admin Policy")
 *)
 
-get "/index.html" (strToHtml indexPage) None
+get "/index.html" (reactElementToHtml (indexPage login)) None
 
-get "/login" (reactElementToHtml loginComponent) None
+get "/login" (reactElementToHtml (indexPage loginComponent)) None
 
 get "/main" (reactElementToHtml (mainLayout loginComponent)) (Some "Admin")
 

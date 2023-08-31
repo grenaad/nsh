@@ -3,16 +3,16 @@ module IndexPage
 open Feliz.ViewEngine
 open Htmx
 
+
 let fileToBase64 (relative_path: string) =
   let plainTextBytes =
     System.IO.File.ReadAllBytes(System.IO.Directory.GetCurrentDirectory() + relative_path)
 
   System.Convert.ToBase64String(plainTextBytes)
 
-let indexPage: string =
+let indexPage (body: ReactElement) : ReactElement =
   let icon_base64_16 = fileToBase64 "/img/favicon-16x16.png"
   let icon_base64_32 = fileToBase64 "/img/favicon-32x32.png"
-  //   let test = fileToBase64 "img/"
 
   Html.html
     [ Html.head
@@ -36,14 +36,9 @@ let indexPage: string =
               prop.sizes "16x16" ] ]
 
       Html.body
-        [
+        [ body
           // Html.div [ prop.id "main-app" ]
           // Html.script[ prop.type' "module"; prop.src "./Main.fs.js" ]
-          Html.div
-            [ prop.text "Hover here to Login"
-              hx.swap.outerHTML
-              hx.trigger "mouseenter"
-              hx.get "/main"
-              prop.classes [ "h-screen"; "flex"; "items-center"; "justify-center" ] ] ] ]
+          ] ]
 
-  |> Render.htmlDocument
+//   |> Render.htmlDocument

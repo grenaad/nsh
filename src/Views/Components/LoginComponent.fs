@@ -1,8 +1,18 @@
 module LoginComponent
 
 open Feliz.ViewEngine
+open Htmx
+
 // open type Html
 // open type prop
+
+let login =
+  Html.div
+    [ prop.text "Hover here to Login"
+      hx.swap.outerHTML
+      hx.trigger "mouseenter"
+      hx.get "/login"
+      prop.classes [ "h-screen"; "flex"; "items-center"; "justify-center" ] ]
 
 let loginComponent =
   Html.div
